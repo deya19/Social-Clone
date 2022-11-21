@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 import "./login.scss";
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 const Login = () => {
 
@@ -52,7 +54,11 @@ const Login = () => {
           <form>
             <input type="text" placeholder="Username" name="username" onChange={handleChange}/>
             <input type="password" placeholder="Password" name="password" onChange={handleChange}/>
-            {error && error}
+            {error && 
+             <Stack sx={{ width: '100%' }} spacing={2}>
+             <Alert severity="error">{error} — check it out!</Alert>
+             </Stack>
+            }
             <button onClick={handleLogin}>Login</button>
           </form>
         </div>

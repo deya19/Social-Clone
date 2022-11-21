@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./register.scss";
 import axios from "axios";
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 const Register = () => {
 
@@ -57,7 +59,11 @@ const Register = () => {
             <input type="email" placeholder="Email" name="email" onChange={handleChange}/>
             <input type="password" placeholder="Password" name="password" onChange={handleChange} />
             <input type="text" placeholder="Name" name="name" onChange={handleChange}/>
-            {error && error }
+            {error && 
+            <Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert severity="error">{error} — check it out!</Alert>
+            </Stack>
+            }
             <button onClick={handleClick}>Register</button>
           </form>
         </div>
