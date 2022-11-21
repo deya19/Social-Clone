@@ -69,7 +69,7 @@ const OneStory = () => {
   
 
     
-  // To close the after 5 min
+  // To close the after 5 sec
    const Load = useEffect(() => { 
      setTimeout(() => {
         navigate("/");

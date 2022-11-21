@@ -7,16 +7,30 @@
   height: 100%;
   position: relative;
 
+  @include mobile{
+    height: 92vh;
+  }
+  
+ 
+
   .moreItem{
       display: flex;
       align-items: center;
       position: absolute;
-      top:23px;
+      top:6px;
       right: -13px;
       color: themed(textColor);
       cursor: pointer;
       z-index: 2;
 
+      @include tablet{
+        right: 0px;
+      }
+     
+
+      @include mobile{
+        right: 0px;
+      }
 
       .iconMore{
         font-size: 30px;
@@ -25,7 +39,7 @@
 
   button{
     position: absolute;
-    top: 25px;
+    top: 6px;
     right: 20px;
     border: none;
     border-radius: 5px;
@@ -34,6 +48,10 @@
     cursor: pointer;
     color:#fff;
     z-index: 2;
+
+    @include tablet{
+      right: 30px;
+    }
   }
 
   img{
@@ -41,9 +59,22 @@
       height: 95%;
       object-fit: cover;
       position: absolute;
-      top: 70px;
+      top: 37px;
       left: 18px;
       right: 0;
+
+
+      @include tablet{
+       width: 95%;
+       height: 50%;
+       top: 25%;
+      }
+
+      @include mobile{
+        width: 90%;
+        height: 40%;
+        top: 25%;
+      }
   }
  }
 }
