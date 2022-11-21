@@ -1,0 +1,49 @@
+@import "../../style.scss";
+
+.watchStory{
+  @include themify($themes) {
+  background-color: themed("bgSoft");
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .moreItem{
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top:23px;
+      right: -13px;
+      color: themed(textColor);
+      cursor: pointer;
+      z-index: 2;
+
+
+      .iconMore{
+        font-size: 30px;
+      }
+  }
+
+  button{
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0544f;
+    padding: 5px 10px;
+    cursor: pointer;
+    color:#fff;
+    z-index: 2;
+  }
+
+  img{
+      width: 100%;
+      height: 95%;
+      object-fit: cover;
+      position: absolute;
+      top: 70px;
+      left: 18px;
+      right: 0;
+  }
+ }
+}
