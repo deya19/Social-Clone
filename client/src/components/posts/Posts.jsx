@@ -2,7 +2,8 @@ import Post from "../post/Post";
 import "./posts.scss";
 import { useQuery } from '@tanstack/react-query'
 import { makeRequest } from "../../axios";
-
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 const Posts = ({userId}) => {
   
@@ -23,7 +24,12 @@ const Posts = ({userId}) => {
   return (
   <div className="posts">
     {error ? "Something was wrong!" : (isLoading 
-    ? "Loading" 
+    ? 
+    <Box sx={{ width: 300 }}>
+      <Skeleton />
+      <Skeleton animation="wave" />
+      <Skeleton animation={false} />
+    </Box>
     : data.map(post=><Post post={post} key={post.id}/>))}
   </div>
   );

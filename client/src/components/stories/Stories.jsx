@@ -5,7 +5,8 @@ import { makeRequest } from "../../axios";
 import { useQuery } from "@tanstack/react-query";
 import AddStory from "../addStory/AddStory";
 import Story from "../story/Story";
-
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Stories = () => {
 
@@ -34,7 +35,10 @@ const Stories = () => {
           <button onClick={()=>setOpenAddStory(true)}>+</button>
         </div>
       {error ? "Something was wrong!" : (isLoading 
-       ? "Loading" 
+       ? 
+       <Stack sx={{ color: 'grey.500' }} spacing={2} direction="row">
+        <CircularProgress color="inherit" />
+       </Stack>
        :data.map(story=>(
         <Story story={story} key={story.id}/>
       )))}
