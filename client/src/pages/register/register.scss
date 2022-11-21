@@ -1,3 +1,5 @@
+@import "../../style.scss";
+
 .register {
   height: 100vh;
   background-color: rgb(193, 190, 255);
@@ -14,6 +16,16 @@
     min-height: 600px;
     overflow: hidden;
 
+    @include tablet{
+      width: 70%;
+      min-height: 400px;
+    }
+
+    @include mobile{
+      width: 80%;
+      min-height: 200px;
+    }
+
     .left {
       flex: 1;
       background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
@@ -25,6 +37,14 @@
       flex-direction: column;
       gap: 30px;
       color: white;
+
+      @include tablet{
+        display: none;
+      }
+
+      @include mobile{
+        display: none;
+      }
 
       h1 {
         font-size: 100px;
@@ -57,6 +77,21 @@
       flex-direction: column;
       gap: 50px;
       justify-content: center;
+
+
+
+      @include tablet{
+        padding: 40px;
+        gap: 40px;
+        }
+  
+  
+        @include mobile{
+        padding: 15px;
+        gap: 20px;
+        }
+
+
 
       h1 {
       color: #555;

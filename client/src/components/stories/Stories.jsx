@@ -23,10 +23,6 @@ const Stories = () => {
 
 
 
-
-
-
-
   return (
     <div className="stories">
       <div className="profileStory">
