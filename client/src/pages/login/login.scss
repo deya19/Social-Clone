@@ -15,14 +15,19 @@
     min-height: 600px;
     overflow: hidden;
 
-    @include tablet{
+    @include labtop{
       width: 70%;
       min-height: 400px;
     }
 
+    @include tablet{
+      width: 70%;
+      min-height: 500px;
+    }
+
     @include mobile{
       width: 80%;
-      min-height: 100px;
+      min-height: 200px;
     }
 
     .left {
@@ -77,16 +82,19 @@
       gap: 50px;
       justify-content: center;
       
+      @include labtop{
+        gap: 20px;
+      }
 
       @include tablet{
       padding: 40px;
-      gap: 40px;
+      gap: 25px;
       }
 
 
       @include mobile{
       padding: 20px;
-      gap: 30px;
+      gap: 15px;
       }
 
 
@@ -118,6 +126,49 @@
           border-radius: 5px;
         }
       }
+     
+      .small{
+        display: none;
+        
+
+
+        @include tablet{
+        display: flex;
+        font-size: 19px;
+        }
+    
+    
+          @include mobile{
+          display: flex;
+          font-size: 14px;
+          }
+      }
+     
+      .smallBtn{
+        display: none;
+        width: 27%;
+        padding: 7px;
+        border: none;
+        color: #938eef;
+        background-color: transparent;
+        font-weight: bold;
+        cursor: pointer;
+
+        @include tablet{
+          display: flex;
+          width: 30%;
+          padding: 10px;
+          font-size: 17px;
+          }
+    
+    
+          @include mobile{
+           display: flex;
+           font-size: 12px;
+          }
+      }
+
+
     }
   }
 }

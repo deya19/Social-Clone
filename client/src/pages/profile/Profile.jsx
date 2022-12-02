@@ -15,7 +15,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext";
 import Update from "../../components/update/Update";
-
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
 
@@ -77,72 +77,78 @@ const Profile = () => {
   
 
   return (
-    <div className="profile">
-      {isLoading ? (
-        "loading"
-      ) : (
-        <>
-          <div className="images">
-            <img src={ data.coverPi ? "/upload/" + data.coverPi : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/640px-HD_transparent_picture.png"} alt="" className="cover" />
-            <img src={data.profilePi? "/upload/" + data.profilePi:"https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"} alt="" className="profilePic" />
-          </div>
-          <div className="profileContainer">
-            <div className="uInfo">
-              <div className="left">
-                <a href="http://facebook.com">
-                  <FacebookTwoToneIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <InstagramIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <TwitterIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <LinkedInIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <PinterestIcon fontSize="large" />
-                </a>
-              </div>
-              <div className="center">
-                <span>{data.name}</span>
-                <div className="info">
-                  <div className="item">
-                    <PlaceIcon />
-                    <span>{data.city}</span>
-                  </div>
-                  <div className="item">
-                    <LanguageIcon />
-                    <span>{data.website}</span>
-                  </div>
-                </div>
-                {rsLoading ? (
-                  "loading"
-                ) : userId === currentUser.id ? (
-                  <button onClick={()=>setOpenUpdate(true)}>update</button>
-                ) : (
-                  <button onClick={handleFollow}>
-                    {relationshipData.includes(currentUser.id)
-                      ? "Following"
-                      : "Follow"}
-                  </button>
-                )}
-              </div>
-              <div className="right">
-                <EmailOutlinedIcon />
-                <MoreVertIcon onClick={() => setMenuOpen(!menuOpen)} style={{cursor:"pointer"}}/>
-                {(menuOpen && userId === currentUser.id) && (
-                <button onClick={handleLogout}>Logout</button>
-                 )}
-              </div>
+    <>
+      <Helmet>
+        <title>{data?.name}</title>
+        <meta name={data?.name} content={data?.name}/>
+      </Helmet>
+      <div className="profile">
+        {isLoading ? (
+          "loading"
+        ) : (
+          <>
+            <div className="images">
+              <img src={ data.coverPi ? "/upload/" + data.coverPi : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/640px-HD_transparent_picture.png"} alt="" className="cover" />
+              <img src={data.profilePi? "/upload/" + data.profilePi:"https://crowd-literature.eu/wp-content/uploads/2015/01/no-avatar.gif"} alt="" className="profilePic" />
             </div>
-            <Posts userId = {userId}/>
-          </div>
-        </>
-      )}
-      {openUpdate && <Update setOpenUpdate = {setOpenUpdate} user={data}/>}
-    </div>
+            <div className="profileContainer">
+              <div className="uInfo">
+                <div className="left">
+                  <a href="http://facebook.com">
+                    <FacebookTwoToneIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <InstagramIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <TwitterIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <LinkedInIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <PinterestIcon fontSize="large" />
+                  </a>
+                </div>
+                <div className="center">
+                  <span>{data.name}</span>
+                  <div className="info">
+                    <div className="item">
+                      <PlaceIcon />
+                      <span>{data.city}</span>
+                    </div>
+                    <div className="item">
+                      <LanguageIcon />
+                      <span>{data.website}</span>
+                    </div>
+                  </div>
+                  {rsLoading ? (
+                    "loading"
+                  ) : userId === currentUser.id ? (
+                    <button onClick={()=>setOpenUpdate(true)}>update</button>
+                  ) : (
+                    <button onClick={handleFollow}>
+                      {relationshipData.includes(currentUser.id)
+                        ? "Following"
+                        : "Follow"}
+                    </button>
+                  )}
+                </div>
+                <div className="right">
+                  <EmailOutlinedIcon />
+                  <MoreVertIcon onClick={() => setMenuOpen(!menuOpen)} style={{cursor:"pointer"}}/>
+                  {(menuOpen && userId === currentUser.id) && (
+                  <button onClick={handleLogout}>Logout</button>
+                   )}
+                </div>
+              </div>
+              <Posts userId = {userId}/>
+            </div>
+          </>
+        )}
+        {openUpdate && <Update setOpenUpdate = {setOpenUpdate} user={data}/>}
+      </div>
+    </>
   );
 };
 

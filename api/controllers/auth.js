@@ -46,6 +46,7 @@ export const login =(req,res)=>{
 
     res.cookie("accessToken", token,{
       httpOnly:true,
+      expires : new Date(25340230000000),
     }).status(200).json(others);
   });
 };
@@ -53,7 +54,7 @@ export const login =(req,res)=>{
 
 export const logout =(req,res)=>{
   res.clearCookie("accessToken",{
+    sameSite:"none",
     secure:true,
-    samrSite:"none",
-  }).status(200).json("User has been logged Out")
+  }).status(200).json("User has been logged Out");
 }

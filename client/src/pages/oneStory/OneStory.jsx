@@ -8,6 +8,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { AuthContext } from '../../context/authContext';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { Helmet } from "react-helmet-async";
 
 
 const OneStory = () => {
@@ -26,6 +27,7 @@ const OneStory = () => {
       }),
   });
 
+  
   
     const queryClient = useQueryClient();
 
@@ -69,7 +71,7 @@ const OneStory = () => {
   
 
     
-  // To close the after 5 sec
+  // To close the story after 5 sec
    const Load = useEffect(() => { 
      setTimeout(() => {
         navigate("/");
@@ -81,19 +83,25 @@ const OneStory = () => {
 
  
   return (
-    <div className='watchStory'>
-      {!Load &&  
-       <Box sx={{ width: '100%' }}>
-        <LinearProgress variant="determinate" value={progress} color="inherit" />
-       </Box>}
-      <div className="moreItem">
-        <MoreVertIcon className='iconMore' onClick={() => setMenuOpen(!menuOpen)}/>
-        </div>
-        {(menuOpen && data.userId === currentUser.id) && (
-            <button onClick={handleDelete}>delete</button>
-        )}
-        <img src={"/upload/" + data?.img} alt="" />
-    </div>
+    <>
+      <Helmet>
+        <title>{data?.img}</title>
+        <meta name={data?.img} content={data?.img}/>
+      </Helmet>
+      <div className='watchStory'>
+        {!Load &&  
+         <Box sx={{ width: '100%' }}>
+          <LinearProgress variant="determinate" value={progress} color="inherit" />
+         </Box>}
+        <div className="moreItem">
+          <MoreVertIcon className='iconMore' onClick={() => setMenuOpen(!menuOpen)}/>
+          </div>
+          {(menuOpen && data.userId === currentUser.id) && (
+              <button onClick={handleDelete}>delete</button>
+          )}
+          <img src={"/upload/" + data?.img} alt="" />
+      </div>
+    </>
   )
 }
 
