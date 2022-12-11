@@ -9,7 +9,7 @@
     height: 50px;
     border-bottom: 1px solid themed("border");
     position: sticky;
-    top: 0;
+    top: 0px;
     background-color: themed("bg");
     color:themed("textColor");
     z-index: 999;
@@ -34,7 +34,7 @@
         align-items: center;
         gap: 10px;
         border: 1px solid themed("border");
-        border-radius: 5px;
+        border-radius: 30px;
         padding: 5px;
 
         input {
@@ -42,6 +42,7 @@
           width: 500px;
           background-color: transparent;
           color: themed("textColor");
+          outline: none;
 
           @include mobile{
             display: none;

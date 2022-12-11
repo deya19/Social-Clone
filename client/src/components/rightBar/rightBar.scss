@@ -30,6 +30,7 @@
         padding: 20px;
         margin-bottom: 20px;
         background-color: themed("bg");
+        border-radius: 20px;
 
         span {
           color: gray;
@@ -51,7 +52,7 @@
               width: 40px;
               height: 40px;
               border-radius: 50%;
-              object-fit: cover;
+              object-fit:cover;
             }
 
             .online {
@@ -95,6 +96,38 @@
               }
             }
           }
+        }
+
+        .info{
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+        img{
+          width: 95%;
+          height: 200px;
+          border-radius: 10px;
+          object-fit: cover;
+        } 
+
+        h2{
+          color: themed(textColor);
+          font-size: 22px;
+          font-weight: bold;
+        }
+       .trend{  
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        p{
+          color: themed(textColor);
+          font-size: 14px;
+          font-weight: 500;
+          color: blue;
+          cursor: pointer;
+        }
+         }
         }
       }
     }

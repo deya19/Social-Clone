@@ -66,6 +66,7 @@ const Post = ({ post }) => {
  
 
 
+
   return (
     <div className="post">
       <div className="container">
@@ -96,12 +97,12 @@ const Post = ({ post }) => {
             {isLoading ? (
               "loading"
             ) : data?.includes(currentUser.id) ? (
-              <FavoriteOutlinedIcon
+              <FavoriteOutlinedIcon 
                 style={{ color: "red" }}
                 onClick={handleLike}
               />
             ) : (
-              <FavoriteBorderOutlinedIcon onClick={handleLike} />
+              <FavoriteBorderOutlinedIcon onClick={handleLike} className="toLiked" />
             )}
             {data?.length} Likes
           </div>

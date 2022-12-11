@@ -86,11 +86,16 @@
         .right {
           button {
             border: none;
-            padding: 5px;
+            padding: 5px 10px;
             color: white;
             cursor: pointer;
             background-color: #5271ff;
-            border-radius: 3px;
+            border-radius: 5px;
+
+            @include mobile{
+              padding: 5px;
+              margin-left: 8px;
+            }
           }
         }
       }
