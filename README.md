@@ -6,7 +6,7 @@
 ##### 2) Share post with other including images 🖼
 ##### 3) Show post and story only from people who I follow 👍
 ##### 4) Server Side Rendering for better performance and SEO 📡
-##### 5) Prograsive Web APP 🖱
+##### 5) Progressive Web APP 🖱
 
 # Home page
 <img src="https://user-images.githubusercontent.com/104832466/206920803-bf8c8c55-d423-4023-a9f9-8548c4c6a275.png" width="100%">
