@@ -1,6 +1,6 @@
 # Social-Clone
 
-### Technologis used: ReactJS,MaterialUI,Context,Query,Mutaion,SCSS and ExpressJS
+### Technologis used: ReactJS,MaterialUI,Context,Query,Mutaion,SCSS,ExpressJS and MySQL.
 #### Project Features:
 ##### 1) Full responsive design 💻📱
 ##### 2) Share post with other including images 🖼
