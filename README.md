@@ -1,5 +1,16 @@
 # Social-Clone
 
+Turn on Client Side:
+```
+npm start
+```
+Turn on Api:
+```
+npm start
+```
+
+
+
 ### Technologis used: ReactJS,MaterialUI,Context,Query,Mutaion,SCSS,ExpressJS and MySQL.
 #### Project Features:
 ##### 1) Full responsive design 💻📱
